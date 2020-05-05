@@ -15,8 +15,11 @@ final class Util {
         var bundle = Bundle(identifier: "com.clipy-app.KeyHolder")
         if bundle == nil {
             let frameworkBundle = Bundle(for: RecordView.self)
-            let path = frameworkBundle.path(forResource: "KeyHolder", ofType: "bundle")!
-            bundle = Bundle(path: path)
+            if let path = frameworkBundle.path(forResource: "KeyHolder", ofType: "bundle") {
+                bundle = Bundle(path: path)
+            } else {
+                bundle = Bundle.main
+            }
         }
         guard let resourceBundle = bundle else { return nil }
         return resourceBundle.image(forResource: name)

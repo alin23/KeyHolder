@@ -144,7 +144,7 @@ open class RecordView: NSView {
         let fontSize = self.fontSize
         let modifiers: NSEvent.ModifierFlags
         if let keyCombo = self.keyCombo {
-            modifiers = keyCombo.modifiers.convertSupportCococaModifiers()
+            modifiers = keyCombo.modifiers.convertSupportCocoaModifiers()
         } else {
             modifiers = inputModifiers
         }
